@@ -27,7 +27,7 @@ if (global.document) {
   const info = [
     ...(process.env.NOW_GITHUB_COMMIT_SHA
       ? [
-          `Commit: https://github.com/zeit/docs/commit${
+          `Commit: https://github.com/zeit/docs/commit/${
             process.env.NOW_GITHUB_COMMIT_SHA
           }`
         ]
