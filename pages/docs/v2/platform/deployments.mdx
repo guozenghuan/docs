@@ -10,7 +10,7 @@ export const meta = {
   title: 'Deployments',
   description: 'Understanding and making deployments with ZEIT Now.',
   editUrl: 'pages/docs/v2/platform/deployments.mdx',
-  lastEdited: '2020-02-26T01:19:50.000Z'
+  lastEdited: '2020-02-27T06:25:07.000Z'
 }
 
 A deployment is the result of building your [Project](/docs/v2/platform/projects/) and making it available through a live URL.
@@ -86,6 +86,8 @@ There are two types of deployment on the ZEIT Now platform: **preview** and **pr
 By making a **preview deployment**, the **preview URL** will be updated to reflect that of the latest deployment made.
 
 The **preview URL** is provided on a pull or merge request when using a [ZEIT Now for Git Integration](/docs/v2/git-integrations) and contains the name of the user or team to which the [Project](/docs/v2/platform/projects) belongs.
+
+If you request a **preview URL**, the `X-Robots-Tag` HTTP header will be set as `noindex`. That means preview URLs will NOT be indexed by search engines like Google. Learn more about `X-Robots-Tag` [here](https://developers.google.com/search/reference/robots_meta_tag#xrobotstag).
 
 ### Production
 
