@@ -10,7 +10,7 @@ export const meta = {
   description:
     'Using ZEIT Now with a scope of a user or a team and how to manage them.',
   editUrl: 'pages/docs/v2/platform/users-and-teams.mdx',
-  lastEdited: '2020-01-24T10:37:14.000Z'
+  lastEdited: '2020-02-27T05:33:34.000Z'
 }
 
 There are identity forms available on ZEIT Now, called "scopes": Users and teams.
@@ -86,29 +86,6 @@ As you read above, all our interfaces allow switching between scopes without has
 After clicking the button, you will be presented a series of fields that you can adjust to your needs. Any changes you make to those fields are entirely unrelated to any other scopes and do not affect them in any way.
 
 Only the scope that is indicated using the avatar icon on the top left is affected.
-
-## Selecting a Scope for API Requests
-
-When communicating with [our API](/docs/api), all interactions only consider the resources contained within your own user account by default.
-
-If you want to access a team's resources, you first need to find out the ID of the team.
-
-This can be accomplished by switching to the team in Now CLI (as described above) and then opening the file located under `./.now/config.json`, which will reveal a property named `currentTeam` within it. This property contains the ID of your team.
-
-Now you can attach the ID to the URL of your requests like this:
-
-```
-https://api.zeit.co/v2/now/deployments?teamId=<team-id-here>
-```
-
-With this GET parameter attached, the response of the URL above will now include only the deployments of the team matching the specified `teamId`.
-
-However, you still need to attach a token of your user account as described [here](/docs/api#api-basics/authentication). In turn, this user account needs to be a member of the team you would like to access over the API.
-
-<Note>
-  For more information on the teams API endpoint, see our{' '}
-  <Link href="/docs/api/v2#endpoints/teams">API reference documentation</Link>.
-</Note>
 
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 

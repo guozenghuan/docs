@@ -20,21 +20,23 @@ Requests to the ZEIT Now API must provide an API token through the `Authorizatio
     The <InlineCode>Authorization</InlineCode> header with a token.
 </Caption>
 
-API queries for resources owned by a team require a `teamId` query string at the end of the API endpoint URL and use the team's ID as the value:
+### Accessing Resources Owned by a Team
+
+By default, you can access resources contained within your own user account.
+
+To access resources owned by a team, you must first find the team ID. You can do so in one of the two ways:
+
+1. **Use Now CLI**: Switch to the team you want to by running `now switch` on Now CLI ([documentation](/docs/now-cli#commands/switch)). Then, open `.now/config.json` in the project directory and look for the `currentTeam` property. This is the team ID.
+2. **Use API**: Use the `teams` endpoint to find `teamId` ([documentation](#endpoints/teams/list-all-your-teams)).
+
+After you obtained the team ID, append it as a query string at the end of the API endpoint URL:
 
 <Code>https://api.zeit.co/v6/now/deployments?teamId=[team ID]</Code>
 <Caption>
-    An API endpoint using a team ID with the <InlineCode>teamId</InlineCode>{' '}
-    query string.
+    Replace <InlineCode>[team ID]</InlineCode>{' '}with the team ID you obtained.
 </Caption>
 
-<Note>
-  You can find your own team's ID using the{' '}
-  <Link href="#endpoints/teams/list-all-your-teams">
-    <InlineCode>teams</InlineCode> endpoint
-  </Link>
-  .
-</Note>
+<Note>You still need to attach your API token to the API request.</Note>
 
 ### Failed Authentication
 
