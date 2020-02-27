@@ -303,7 +303,7 @@ module.exports = withMDX({
   assetPrefix: isProd ? '/docs' : '',
 
   env: {
-    VERSION: require('./package.json').version,
+    NOW_GITHUB_COMMIT_SHA: process.env.NOW_GITHUB_COMMIT_SHA,
     API_URL: process.env.API_URL,
     IMAGE_ASSETS_URL: 'https://assets.zeit.co/image/upload/front',
     VIDEO_ASSETS_URL: 'https://assets.zeit.co/video/upload/front',

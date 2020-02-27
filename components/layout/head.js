@@ -25,7 +25,13 @@ RouterEvents.on('routeChangeError', () => {
 
 if (global.document) {
   const info = [
-    `Version: ${process.env.VERSION}`,
+    ...(process.env.NOW_GITHUB_COMMIT_SHA
+      ? [
+          `Commit: https://github.com/zeit/docs/commit${
+            process.env.NOW_GITHUB_COMMIT_SHA
+          }`
+        ]
+      : []),
     `Check out our code here: https://zeit.co/oss`,
     `Have a great day! 📣🐢`
   ]
